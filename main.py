@@ -3,16 +3,14 @@ import template1
 import os
 import sys
 import json
-import base64
 from bs4 import BeautifulSoup
 import random
-import requests
 import requests
 from flask import Flask, request
 
 app = Flask(__name__)
 
-PAGE_TOKEN = "EAAcWAyiBLqcBAPYKYYaqZAVMPqnNDJ9PnFSmtZBakSlaXZAC9aWsRYDVoSCZBot5b7LJKzJ8DwquLZAy6fTizhCynx6LzKBYb8yevTp9nTy0Pu8ob1xLSvDZCe22zRUgXnhW4OFaLXZB2PU4YBLZAVktfPPgNsrSraNbIUt4RErcgnZBw0ccf2gVu"
+PAGE_TOKEN = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 VERIFY_TOKEN = "hello"
 welcome = ["hi", "hey", "hello"]
 
@@ -83,18 +81,6 @@ def webook():
                                                 send_quick_reply(sender_id)
                                             else:
                                                 send_typing(sender_id,attractions[0])
-                                        # if message_text == "Getting Started":
-                                        #     send_typing(sender_id)
-                                        #     send_message(sender_id,"Welcome to Travel Guide! Explore Rajasthan with just one tap.")
-                                        #     send_quick_reply(sender_id)
-                                        # elif message_text == "Travel Guide":
-                                        #     send_typing(sender_id)
-                                        #     send_message(sender_id,"Travel Guide is your personal guide assistant which gives you all information about travel and tourism.")
-                                        #     send_quick_reply(sender_id)
-                                        # elif message_text == "Created by Blue Wizzards":
-                                        #     send_typing(sender_id)
-                                        #     send_message(sender_id,"This project was done by Shrey Patel and Yash Shah at the rajasthan hackathon 4.0")
-
 
 
 
@@ -108,9 +94,7 @@ def webook():
 					msg = messaging_event["postback"]['payload']
 					send_id = messaging_event["sender"]['id']
 
-					# if msg == "c":
-					# 	send_msg = "This project was done by Shrey Patel and Yash Shah at the rajasthan hackathon 4.0"
-					# 	send_message(send_id, "Tell us what you need ?")
+					
 				if msg == "Travel":
 				    send_msg = "Travel Guide is your personal guide assistant which gives you all information about travel and tourism."
 				    send_message(send_id, send_msg)
@@ -270,9 +254,6 @@ def log(message):  # simple wrapper for logging to stdout on heroku
 	print "-"*10
 	# print str(message)
 	sys.stdout.flush()
-
-# app id - 1626493137661365
-# page id - EAAXHSXGzLbUBABOG4sJMQYzHNYgf3419pwCGfXFSKYmJReXqxU9pjQEDqtq6r6liipbZCIMptoJ8exs0QOEAb81th61V95BQbpCJNDIgTFSTwq6B6ZCASCZBvSqsp4DdO27Y4Y2F4GzCTQtaaK5Jp3V9CHArqmGHPvnT8OCSQZDZD
 
 if __name__ == '__main__':
     app.run(debug=True,port=80)
